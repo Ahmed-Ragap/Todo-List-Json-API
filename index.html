@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- font awesome  CDN -->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.css" rel="stylesheet" media="all">
+     <!-- Bootstrap 5 CDN-->
+     <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>todo task</title>
+</head>
+<body>
+
+
+<header>
+    <div class="container ">
+      <div class="row">
+        <div class="col-12 ">
+            <nav id="defaultNav py-2 ">
+        <span id="localStorage-status" class="success -localStorage"></span>
+        <span id="clear-localStorage" class="link -localstorage hide">Clear Localstorage</span>
+        <span id="signIn-Link" class="link">Sign In</span>
+        <span id="signUp-Link" class="link">Sign Up</span>
+      </nav>
+      <nav id="adminNav" class="hide">
+        <span id="loggedIn-userName"></span>
+        <span id="signOut" class="link">Sign Out</span>
+      </nav>
+      <div class="forms-block text-right">
+        <form class="form -signin-form  my-3" id="signIn-Block">
+          <div class="">
+            <label for="#userName">User Name:</label>
+            <input type="text" name="" value="" placeholder="User name" id="userName">
+          </div>
+          <div class="">
+            <label for="#passWord">Password:</label>
+            <input type="password" name="" value="" placeholder="Password" id="passWord">
+          </div>
+          <div class="">
+            <button type="button" name="button" id="signin-btn">Sign in</button>
+          </div>
+        </form>
+        <form class="form -signup-form" id="signUp-Block">
+          <div class="">
+            <label for="">User Name:</label>
+            <input type="text" name="" value="" placeholder="User name" id="signUp-userName">
+          </div>
+          <div class="">
+            <label for="">Password:</label>
+            <input type="password" name="" value="" placeholder="Password" id="signUp-passWord">
+          </div>
+          <div class="">
+            <label for="">Password confirm:</label>
+            <input type="password" name="" value="" placeholder="Password confirm" id="signUp-passWord-confirm">
+          </div>
+          <div class="">
+            <button type="button" name="button" id="signup-btn">Sign Up</button>
+          </div>
+        </form>
+        <p id="form-errors" class="error"></p>
+        <p id="form-success" class="success"></p>
+      </div>
+        </div>
+      </div>
+    
+    </div>
+  </header>
+  <!-- end login -->
+
+  <section class="hero is-dark">
+    <div class="hero-body">
+      <div class="container">
+      </div>
+    </div>
+  </section>
+
+<!-- start todo section elements  -->
+  <section class='todo'>
+    <div class='container'>
+      <div class="row">
+        <div class="col-12">
+<div class="parent">
+
+
+       
+      <div class="field ">
+        <label class="label pb-3">Type in new Todo task, press enter to add it to the list.</label>
+
+        <div class="control">
+          <input autofocus type='text'  data-js='new-todo' name=' id=' placeholder='Your new Todo' aria-placeholder='Add a new item to your Todo list'class='input is-medium'>
+          <h6 class="ms-5 ">completed task:</h6>
+          <span class="numberCompleted">0</span>
+        </div>
+      </div>
+
+  
+
+      <div class="content">
+        <ol class='' data-js='todo-list' type="1"></ol>
+      </div>
+
+      <div id='buttons'>
+        <button class='button is-primary' disabled data-js='saveList'>Save</button>
+        <button class='button is-danger' disabled data-js='clearList'>Clear</button>
+        <button class='button is-loading d-none'disabled data-js='loadList'>Load saved list</button>
+      </div>
+    </div>
+  </div>
+  </div>
+    </div>
+  </section>
+
+
+
+
+<!-- start json todo api  -->
+<div class="json_todo">
+  <div class="container">
+    <div class="row item">
+      
+    </div>
+  </div>
+</div>
+<!-- <div class="item"></div> -->
+
+
+    <!--js  -->
+     <!-- font-awesome js -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+     <!-- Bootstrap 5 CDN -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+ <!--  -->
+    <script src="./js/script.js"></script>
+
+
+<script>
+  const parent = document.querySelector('.item');
+   var con =0;
+   function featchTodos(){
+fetch('https://dummyjson.com/todos')
+.then(res => res.json())
+.then(data => {
+
+   for (let i = 0; i < data.todos.length; i++) {
+
+   parent.innerHTML +=` 
+   <div class='col-sm-6 col-md-4 col-lg-3 mt-4'>
+ 
+    <div class="card" ">
+
+  <div class="card-body text-center">
+    <h5 class="card-title"> ${data.todos[con].userId}  </h5>
+    <p class="card-text">${data.todos[con].todo}</p>
+    <span> completed: ${data.todos[con].completed}</span>
+    <a href="#" class="btn btn-primary d-block mt-3">more</a>
+  </div>
+</div>   
+     </div>   
+   
+  
+   ` 
+   con = con+1
+ }
+})
+
+}
+featchTodos();
+</script>
+
+
+
+</body>
+</html>
