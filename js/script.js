@@ -251,13 +251,13 @@ parent.innerHTML +=`
 <div class='col-sm-6 col-md-4 col-lg-3 mt-4'>
  <div class="card" ">
 <div class="card-body text-center">
- <h5 class="card-title"> ${data.todos[con].userId}  </h5>
- <p class="card-text">${data.todos[con].todo}</p>
+ <h5 class="card-title">user id:  ${data.todos[con].userId}  </h5>
+ <p class="card-text">title: ${data.todos[con].todo}</p>
  <span> completed: ${data.todos[con].completed}</span>
  <a href="#" class="btn btn-primary d-block mt-3">more</a>
 </div>
 </div>   
-  </div>   
+  </div>     
 
 ` 
 con = con+1
