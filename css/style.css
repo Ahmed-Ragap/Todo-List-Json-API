@@ -11,6 +11,8 @@ body {
   position: relative;
 }
 
+/* CSS VARIABLE */
+/*start overlay*/
 .overlay {
   position: absolute;
   top: 0;
@@ -21,6 +23,7 @@ body {
   z-index: -1;
 }
 
+/*start header*/
 header nav {
   font-size: 14px;
   padding: 10px 0;
@@ -102,6 +105,7 @@ header button:hover {
   color: #ffffff;
 }
 
+/*start todo section element style*/
 section.todo {
   z-index: 100;
   position: relative;
@@ -135,6 +139,7 @@ section.todo .control {
 }
 @media (max-width: 767px) {
   section.todo .control {
+    /* media for small screen*/
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -184,6 +189,7 @@ section.todo li::marker {
   color: rgb(0, 255, 13);
 }
 
+/*add toggle class on complete state*/
 .completed {
   text-decoration: line-through;
   font-weight: bolder;
