@@ -12,7 +12,7 @@
     <title>todo task</title>
 </head>
 <body>
-
+<div class="overlay"></div>
 
 <header>
     <div class="container ">
@@ -98,7 +98,22 @@
   
 
       <div class="content">
-        <ol class='' data-js='todo-list' type="1"></ol>
+        <ol class='' data-js='todo-list' type="1">
+          <li class='todo-list--item mt-2 '>
+            <h6>task number 1</h6>
+            <button class='button btn btn-info text-white' data-js='complete'>Complete</button>
+            <button class='button btn btn-success ' data-js='edit'>Edit</button>
+            <button class='button btn btn-danger 'data-js='remove' 
+            >Remove</button>
+          </li>
+          <li class='todo-list--item mt-2 '>
+            <h6>task number 2</h6>
+            <button class='button btn btn-info text-white' data-js='complete'>Complete</button>
+            <button class='button btn btn-success ' data-js='edit'>Edit</button>
+            <button class='button btn btn-danger 'data-js='remove' 
+            >Remove</button>
+          </li>
+        </ol>
       </div>
 
       <div id='buttons'>
