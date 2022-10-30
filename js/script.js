@@ -1,5 +1,4 @@
-// start login and regester block
-// console.log("I'm ready...");
+// start login and register 
 var signInLink = document.getElementById('signIn-Link');
 var signUpLink = document.getElementById('signUp-Link');
 var signInBlock = document.getElementById('signIn-Block');
@@ -120,7 +119,7 @@ signInBtb.onclick = function() {
     }, 3000);
   }
 }
-
+//sign out
 signOut.onclick = function() {
   defaultNav.style.display = 'block';
   adminNav.style.display = 'none';
@@ -128,16 +127,17 @@ signOut.onclick = function() {
 // end login and sign out
 
 
-
+// select  btn action
 const input = document.querySelector('[data-js=new-todo]');
     const todoList = document.querySelector('[data-js=todo-list]');
     const loadButton = document.querySelector('[data-js=loadList]');
     const saveButton = document.querySelector('[data-js=saveList]');
     const clearButton = document.querySelector('[data-js=clearList]');
-
+    // complete Todo and add class completed
     function completeTodo(todo) {
-      todo.classList.toggle('completed');
+      todo.children[0].classList.toggle('completed');
     }
+    // delete Todo
     function deleteTodo(todo) {
       todo.remove();
     }
@@ -168,13 +168,12 @@ const input = document.querySelector('[data-js=new-todo]');
         saveButton.removeAttribute('disabled');
       }
     }
-
+// save all todo item  in localStorage
     function saveTodoList() {
       localStorage.setItem('Todo List', todoList.innerHTML);
     }
 
     todoList.addEventListener('click', function(event) {
-
       let target = event.target.getAttribute('data-js');
       let todo = event.target.parentElement;
 
@@ -191,8 +190,6 @@ const input = document.querySelector('[data-js=new-todo]');
         // show number of completed task 
         let comp = document.querySelectorAll('.completed');
         let numberCompleted = document.querySelector('.numberCompleted');
-        // comp.style.background = 'red';
-        // console.log(comp.length)
         numberCompleted.innerHTML =   comp.length;
       }
     });
@@ -204,7 +201,6 @@ const input = document.querySelector('[data-js=new-todo]');
         // only submit if there's something in the input
         if (this.value.length) {
           const newTodoCopy = this.value;
-
           const todoItem = `
             <li class='todo-list--item mt-2 '>
               <h6>${newTodoCopy}</h6>
@@ -214,10 +210,8 @@ const input = document.querySelector('[data-js=new-todo]');
               >Remove</button>
             </li>
           `;
-
-          // clear the input
+          // clear the input value
           this.value = '';
-
           todoList.innerHTML += todoItem;
           saveTodoList();
         }
@@ -235,14 +229,42 @@ const input = document.querySelector('[data-js=new-todo]');
 
     LoadTodos();
 
-// 
+/*
+____________________________________________________________
+____________________________________________________
+The task in another way, as I understood (fetch API link)
+____________________________________________________
+____________________________________________________________
+*/ 
 
+// select parent element
+const parent = document.querySelector('.item');
+var con =0;
+function featchTodos(){
+fetch('https://dummyjson.com/todos')
+.then(res => res.json())
+.then(data => {
 
+for (let i = 0; i < data.todos.length; i++) {
 
+parent.innerHTML +=` 
+<div class='col-sm-6 col-md-4 col-lg-3 mt-4'>
+ <div class="card" ">
+<div class="card-body text-center">
+ <h5 class="card-title"> ${data.todos[con].userId}  </h5>
+ <p class="card-text">${data.todos[con].todo}</p>
+ <span> completed: ${data.todos[con].completed}</span>
+ <a href="#" class="btn btn-primary d-block mt-3">more</a>
+</div>
+</div>   
+  </div>   
 
+` 
+con = con+1
+}
+})
 
+}
+featchTodos();
 
-
-
-
-
+// END

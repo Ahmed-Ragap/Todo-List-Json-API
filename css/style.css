@@ -133,7 +133,7 @@ section.todo .control {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-@media (max-width: 575px) {
+@media (max-width: 767px) {
   section.todo .control {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -159,7 +159,7 @@ section.todo input {
 }
 section.todo h6 {
   color: #eee;
-  font-size: 13px;
+  word-break: break-all;
 }
 section.todo span {
   background-color: #000;
@@ -184,6 +184,8 @@ section.todo li::marker {
   color: rgb(0, 255, 13);
 }
 
-.completed h6 {
+.completed {
   text-decoration: line-through;
+  font-weight: bolder;
+  color: rgba(0, 0, 0, 0.2) !important;
 }
