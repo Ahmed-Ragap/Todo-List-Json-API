@@ -10,11 +10,12 @@ body {
   position: relative;
 
 }
+/* CSS VARIABLE */ 
 $main_co:#000;
 $second_co:#eee;
 $main_fs:16px;
 
-// header
+/*start overlay*/ 
 .overlay{
 position: absolute;
 top: 0;
@@ -24,6 +25,7 @@ height: 100%;
 background: rgba($main_co, .7);
 z-index: -1;
 }
+/*start header*/ 
 header{
 
   nav{
@@ -104,7 +106,7 @@ button {
 
 }
 
-// start todo section element style
+/*start todo section element style*/ 
 section.todo{
   z-index: 100;
   position: relative;
@@ -119,12 +121,13 @@ flex-direction: column;
     color:$second_co; 
   }
   .control{
-    // width: 100px;
+ 
 display: flex;
 justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     @media(max-width:767px){
+      /* media for small screen*/ 
       justify-content: center;
       gap: 10px;
     }
@@ -141,7 +144,6 @@ justify-content: space-between;
   }
   h6{ 
     color:$second_co; 
-    // font-size: $main_fs - 1px;
     word-break: break-all;
   }
   span{
@@ -172,7 +174,7 @@ justify-content: space-between;
 }
 } 
 
-// add toggle class on complete state
+/*add toggle class on complete state*/ 
 .completed{
   text-decoration: line-through; 
   font-weight: bolder;
