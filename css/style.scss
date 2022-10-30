@@ -42,6 +42,9 @@ header{
   .form {
     display: none;
     margin: 20px 0 10px;
+    label{
+      color:$second_co;
+    }
   }
   
   span {
@@ -49,11 +52,11 @@ header{
   }
   span.link {
     cursor: pointer;
-    color: $main_co;
+    color: $second_co;
     word-spacing: -3px;
     border-bottom: 1px solid transparent;
     &:hover {
-      border-color: $main_co;
+      border-color: $second_co;
     }
   }
   .hide {
@@ -113,19 +116,32 @@ flex-direction: column;
   label{
     max-width: 70%;
     font-size: $main_fs - 3px; 
+    color:$second_co; 
   }
   .control{
     // width: 100px;
 display: flex;
-justify-content: flex-start;
+justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    @media(max-width:575px){
+      justify-content: center;
+      gap: 10px;
+    }
+  }
+  .right{
+    display: flex;
+    justify-content: center;
+    align-items:center
   }
   input{
     padding: 5px 10px;
     min-width: 300px;
+    border-color:transparent;
   }
   h6{
-
+    color:$second_co; 
+    font-size: $main_fs - 3px;
   }
   span{
     background-color: $main_co;
@@ -144,15 +160,19 @@ justify-content: flex-start;
  ol{
 
   }
-  li{ background-color:rgba($main_co, .1); padding: 10px; border-radius:15px;
+  li{ background-color:rgba($second_co, .2); padding: 10px; border-radius:15px;
      -webkit-border-radius:15px;
      -moz-border-radius:15px;
       -ms-border-radius:15px;
        -o-border-radius:15px;
+       &::marker {
+        color: rgb(0, 255, 13);
+    }
 }
 }
 
 // add toggle class on complete state
 .completed h6 {
   text-decoration: line-through;
+  // color:$second_co; 
 }

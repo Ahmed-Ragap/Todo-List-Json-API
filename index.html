@@ -90,15 +90,17 @@
 
         <div class="control">
           <input autofocus type='text'  data-js='new-todo' name=' id=' placeholder='Your new Todo' aria-placeholder='Add a new item to your Todo list'class='input is-medium'>
-          <h6 class="ms-5 ">completed task:</h6>
-          <span class="numberCompleted">0</span>
+   <div class="right d-flex ">
+    <h6 class="ms-5  me-1">completed task:</h6>
+    <span class="numberCompleted">0</span>
+   </div>
         </div>
       </div>
 
   
 
       <div class="content">
-        <ol class='' data-js='todo-list' type="1">
+        <ol class='' data-js='todo-list' type="A">
           <li class='todo-list--item mt-2 '>
             <h6>task number 1</h6>
             <button class='button btn btn-info text-white' data-js='complete'>Complete</button>
@@ -117,8 +119,8 @@
       </div>
 
       <div id='buttons'>
-        <button class='button is-primary' disabled data-js='saveList'>Save</button>
-        <button class='button is-danger' disabled data-js='clearList'>Clear</button>
+        <button class='button btn btn-primary' disabled  data-js='saveList'>Save</button>
+        <button class='button btn btn-danger' disabled data-js='clearList'>Clear all</button>
         <button class='button is-loading d-none'disabled data-js='loadList'>Load saved list</button>
       </div>
     </div>
@@ -126,8 +128,6 @@
   </div>
     </div>
   </section>
-
-
 
 
 <!-- start json todo api  -->
@@ -138,8 +138,6 @@
     </div>
   </div>
 </div>
-<!-- <div class="item"></div> -->
-
 
     <!--js  -->
      <!-- font-awesome js -->
